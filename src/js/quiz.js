@@ -83,7 +83,6 @@ const quiz = (function (doc) {
   /* --- Display Results --- */
 
   const displayResult = function (numCorrect, numQuestions) {
-
     const quizContainer = doc.querySelector('.quiz-container')
     const conclusion = quizContainer.querySelector('.conclusion')
 
