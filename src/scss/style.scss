@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css?family=Walter+Turncoat');
+@import 'imports/simple-clamp';
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 2rem;
+  display: grid;
+  place-items: center;
+  font-family: 'Walter Turncoat', cursive;
+  background-color:black;
+  color:white;
+}
+
+h1,
+h2 {
+  font-family: 'Walter Turncoat', cursive;
+  font-size: simple_clamp(2rem, 2.2rem, 480px, 800px);
+  font-weight: 300;
+  line-height: 130%;
+  opacity: .75;
+  margin-bottom: simple_clamp(2rem, 4rem, 480px, 800px);;
+}
+
+p {
+  font-family: 'Walter Turncoat', cursive;
+}
+
+#quiz {
+  width: 90%;
+  max-width: 850px;
+  min-width: 400px;
+  min-height: 600px;
+  padding: 2rem 2rem 4rem;
+  text-align: center;
+  background:darkslategray url('../images/black-board.jpg');
+  background-color: darkslategray;
+  background-size: 100% 100%;
+
+  .question-container {
+    display: none;
+  }
+
+  .intro {
+    display: grid;
+    justify-content: center;
+
+    h1 {
+      min-height: auto;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      min-height: auto;
+      margin-bottom: 3rem;
+      font-size: 2.2rem;
+      font-style: italic;
+      color: palevioletred;
+    }
+  }
+
+  &.intro-hidden {
+
+    .question-container {
+      display: block;
+    }
+
+    .intro {
+      display: none;
+    }
+  }
+
+  .multiple-choice {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    justify-content: space-evenly;
+    grid-row-gap: 2rem;
+  }
+}
+
+
+button {
+  display: block;
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  padding: 1rem 2rem;
+  color: white;
+  background-image: url('../images/chalk-outline.png');
+  background-color: transparent;
+  background-size: 100% 100%;
+  border: none;
+  font-family: 'Walter Turncoat', cursive;
+  font-size: 1.35rem;
+  line-height: 150%;
+  letter-spacing: .05rem;
+  text-transform: uppercase;
+  user-select: none;
+  cursor: pointer;
+  transition: transform .35s ease, color .35s ease;
+
+  &:hover {
+    color: goldenrod;
+    transform: scale(1.15);
+  }
+
+  &:after {
+    position: absolute;
+    margin: auto;
+    top: 10%;
+    left: 1.5rem;
+    font-size: 1.4rem;
+    color: goldenrod;
+    background-color: transparent;
+  }
+
+  &.choice-a {
+    filter: hue-rotate(280deg);
+  }
+
+  &.choice-b {
+    filter: hue-rotate(10deg);
+  }
+
+  &.choice-c {
+    filter: hue-rotate(130deg);
+  }
+
+  &.choice-d {
+    filter: hue-rotate(180deg);
+  }
+
+  &.choice-a:after {
+    content: 'A.';
+  }
+
+  &.choice-b:after {
+    content: 'B.';
+  }
+
+  &.choice-c:after {
+    content: 'C.';
+  }
+
+  &.choice-d:after {
+    content: 'D.';
+  }
+}

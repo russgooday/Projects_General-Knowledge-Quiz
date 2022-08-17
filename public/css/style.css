@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css?family=Walter+Turncoat"); /* ------------ simple_clamp ------------- */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  padding-top: 2rem;
+  display: grid;
+  place-items: center;
+  font-family: "Walter Turncoat", cursive;
+  background-color: black;
+  color: white;
+}
+
+h1,
+h2 {
+  font-family: "Walter Turncoat", cursive;
+  font-size: clamp(2rem, 1.7rem + 1vw, 2.2rem);
+  font-weight: 300;
+  line-height: 130%;
+  opacity: 0.75;
+  margin-bottom: clamp(2rem, -1rem + 10vw, 4rem);
+}
+
+p {
+  font-family: "Walter Turncoat", cursive;
+}
+
+#quiz {
+  width: 90%;
+  max-width: 850px;
+  min-width: 400px;
+  min-height: 600px;
+  padding: 2rem 2rem 4rem;
+  text-align: center;
+  background: darkslategray url("../images/black-board.jpg");
+  background-color: darkslategray;
+  background-size: 100% 100%;
+}
+#quiz .question-container {
+  display: none;
+}
+#quiz .intro {
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#quiz .intro h1 {
+  min-height: auto;
+  margin-bottom: 2rem;
+}
+#quiz .intro h2 {
+  min-height: auto;
+  margin-bottom: 3rem;
+  font-size: 2.2rem;
+  font-style: italic;
+  color: palevioletred;
+}
+#quiz.intro-hidden .question-container {
+  display: block;
+}
+#quiz.intro-hidden .intro {
+  display: none;
+}
+#quiz .multiple-choice {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  grid-row-gap: 2rem;
+}
+
+button {
+  display: block;
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  padding: 1rem 2rem;
+  color: white;
+  background-image: url("../images/chalk-outline.png");
+  background-color: transparent;
+  background-size: 100% 100%;
+  border: none;
+  font-family: "Walter Turncoat", cursive;
+  font-size: 1.35rem;
+  line-height: 150%;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  -webkit-transition: color 0.35s ease, -webkit-transform 0.35s ease;
+  transition: color 0.35s ease, -webkit-transform 0.35s ease;
+  transition: transform 0.35s ease, color 0.35s ease;
+  transition: transform 0.35s ease, color 0.35s ease, -webkit-transform 0.35s ease;
+}
+button:hover {
+  color: goldenrod;
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+button:after {
+  position: absolute;
+  margin: auto;
+  top: 10%;
+  left: 1.5rem;
+  font-size: 1.4rem;
+  color: goldenrod;
+  background-color: transparent;
+}
+button.choice-a {
+  -webkit-filter: hue-rotate(280deg);
+          filter: hue-rotate(280deg);
+}
+button.choice-b {
+  -webkit-filter: hue-rotate(10deg);
+          filter: hue-rotate(10deg);
+}
+button.choice-c {
+  -webkit-filter: hue-rotate(130deg);
+          filter: hue-rotate(130deg);
+}
+button.choice-d {
+  -webkit-filter: hue-rotate(180deg);
+          filter: hue-rotate(180deg);
+}
+button.choice-a:after {
+  content: "A.";
+}
+button.choice-b:after {
+  content: "B.";
+}
+button.choice-c:after {
+  content: "C.";
+}
+button.choice-d:after {
+  content: "D.";
+}

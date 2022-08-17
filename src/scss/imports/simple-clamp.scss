@@ -1,0 +1,18 @@
+/* ------------ simple_clamp ------------- */
+
+@function strip_units($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+// @params (rem, rem, px, px /*optional px*/)
+// @returns clamp(rem, rem + vw, rem)
+@function simple_clamp($minFont, $maxFont, $minWidth, $maxWidth, $pixPerRem: 16px) {
+    $minFontPx: strip_units($minFont) / (1 / $pixPerRem);
+    $maxFontPx: strip_units($maxFont) / (1 / $pixPerRem);
+
+    $slope: ($maxFontPx - $minFontPx) / ($maxWidth - $minWidth);
+    $yOffset: #{($minFontPx - ($slope * $minWidth)) / $pixPerRem}rem;
+
+    // will remove 'yOffset +' if equal to 0
+    @return clamp(#{$minFont, #{if($yOffset=='0rem','', $yOffset'+')} #{$slope * 100}vw, $maxFont});
+}
